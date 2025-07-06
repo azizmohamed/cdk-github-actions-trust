@@ -30,5 +30,7 @@ export class CdkGithubActionsTrustStack extends cdk.Stack {
     const insecureBucket = new s3.Bucket(this, 'InsecureBucket', {
       bucketName: 'insecure-bucket-demo'
     });
+
+        cdk.Aspects.of(this).add(new EncryptionAspect());
   }
 }
